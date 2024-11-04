@@ -37,7 +37,7 @@ while True:
         
     elif c==2:
         insights.recommend_stocks(conn)
-        break
+    
 
     elif c==3:
         while True:
