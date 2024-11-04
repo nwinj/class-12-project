@@ -143,6 +143,7 @@ while True:
         company_name=input("Enter Company Name: ").strip().lower()  # Take user input and convert to lowercase
         view.view_stock_detail_by_name(conn,company_name )  # Pass the connection object to the function
     elif c==7:
+        conn.close()
         exit()
 
         
