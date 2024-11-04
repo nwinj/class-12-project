@@ -20,7 +20,7 @@ while True:
     print("===================================")
     print("       STOCK ANALYZER MENU         ")
     print("===================================")
-    print("1. View Stocks ")
+    print("1. View Stocks")
     print("2. Top Market Recommendations")
     print("3. Industry Classifier")
     print("4. Pro Stock Sorter")
