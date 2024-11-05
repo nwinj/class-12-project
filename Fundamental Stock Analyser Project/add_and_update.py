@@ -38,7 +38,7 @@ def update_company_data(con,company_name, market_cap=None, pe_ratio=None, pb_rat
 
     # Prepare the SQL query with dynamic columns to update
     if market_cap is not None:
-        updates.append("`market cap` = %s")
+        updates.append("`market_cap` = %s")
         params.append(market_cap)
     
     if pe_ratio is not None:
