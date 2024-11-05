@@ -26,7 +26,7 @@ def show_stocks_by_industry(con,industry_name):
             # Map actual column names to the headers
             column_mapping = {
                 'company': 'Company Name',
-                'market cap': 'Market Cap',
+                'market_cap': 'Market Cap',
                 'PEratio': 'P/E Ratio',
                 'PBratio': 'P/B Ratio',
                 'Divy': 'Dividend Yield',
