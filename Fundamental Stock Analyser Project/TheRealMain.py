@@ -4,14 +4,14 @@ import insights
 import classifier
 import prosorter as p
 import add_and_update as au
+import stock_help as h
 # Establish the connection
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='12345',
-    database='stockanalysis'  
+    password='Blinkophits1million*',
+    database='project'  
 )
-
 
 
 
@@ -26,21 +26,20 @@ while True:
     print("4. Pro Stock Sorter")
     print("5. Add and Update Company Data")
     print("6. Search Company By Name")
-    print("7. Exit")
+    print("7. Help")
+    print("8. Exit")
     print("===================================")
     print("                                   ")
 
-    c = int(input("Please select an option (1-7): "))
+    c = input("Please select an option (1-7): ")
 
-    if c==1:
+    if c=='1':
         insights.stock_insights(conn)
         
-    elif c==2:
+    elif c=='2':
         insights.recommend_stocks(conn)
-    
 
-    elif c==3:
-        while True:
+    elif c=='3':
             print("                                                   ")
             print("===================================================")
             print("             Industry Classifier                   ")
@@ -53,30 +52,34 @@ while True:
             print("6. Go Back ")
             print("===================================================")
             print("                                                   ")
-                
-            c1=int(input("Please select an option (1-5): "))
-            if c1 in [1,2,3,4,5]:
-                industry_name = input("Enter Industry Name: ")
 
-                if c1==1:
+            while True:  
+                c1=input("Please select an option (1-5): ")
+                if c1=='1':
+                    industry_name = input("Enter Industry Name: ")
                     classifier.show_stocks_by_industry(conn,industry_name)
-                elif c1==2:
+                elif c1=='2':
+                    industry_name = input("Enter Industry Name: ")
                     classifier.recommend_stocks_by_industry(conn,industry_name=None)
-                elif c1==3:
-                    classifier.stock_insights_industry_least_debt(conn,industry_name)
-                elif c1==4:
+                elif c1=='3':
+                     classifier.stock_insights_industry_least_debt(conn,industry_name)
+                     industry_name = input("Enter Industry Name: ")
+                elif c1=='4':
+                     industry_name = input("Enter Industry Name: ")
                     classifier.stock_insights_industry_best_yoy_growth(conn,industry_name)
-                elif c1==5:
+                elif c1=='5':
+                    industry_name = input("Enter Industry Name: ")
                     classifier.stock_insights_industry_best_dividend_yield(conn,industry_name)
-            elif c1== 6:
-                break
-            else:
-                print("Invalid Choice,Please Enter A Choice From Menu")
+                elif c1== '6':
+                     break
+                else:
+                    print("Invalid Choice,Please Enter A Choice From Menu")
+                    break                   
                 
             
         
         
-    elif c==4:
+    elif c=='4':
         while True:
             print("                                                   ")
             print("===================================================")
@@ -89,14 +92,14 @@ while True:
             print("===================================================")
             print("                                                   ")
                 
-            c1=int(input("Please select an option (1-4): "))
-            if c1==1:
+            c1=input("Please select an option (1-4): ")
+            if c1=='1':
                 p.stock_pro_top_least_debt(conn)
-            elif c1==2:
+            elif c1=='2':
                  p.stock_pro_top_best_yoy_growth(conn)
-            elif c1==3:
+            elif c1=='3':
                 p.stock_pro_top_best_dividend_yield(conn)
-            elif c1== 4:
+            elif c1== '4':
                 break
             else:
                 print("Invalid Choice,Please Enter A Choice From Menu")
@@ -104,7 +107,7 @@ while True:
             
         
         
-    elif c==5:
+    elif c=='5':
         while True:
             print("                                                   ")
             print("===================================================")
@@ -115,9 +118,12 @@ while True:
             print("3. Go Back ")
             print("===================================================")
             print("                                                   ")
-                
-            c1=int(input("Please select an option (1-3): "))
-            if c1 in [1,2]:
+            
+            c1=input("Please select an option (1-3): ")
+            
+    
+      
+            if c1=='1':
                 co= input("Enter Company Name: ")
                 m= input("Enter Market Cap: ")
                 pe=input("Enter Pe Ratio: ")
@@ -126,24 +132,38 @@ while True:
                 s=input("Enter Sector: ")
                 de = input("Enter Debt To Equity Ratio: ")
                 yoy = input("Enter Yoy Growth: ")
-    
-      
-                if c1==1:
-                    au.add_new_company(conn,co, m, pe, pb, d, s, de, yoy)
-                elif c1==2:
-                    au.update_company_data(conn,co, m=None, pe=None, pb=None, d=None, s=None, de=None, yoy=None)
+                
+                au.add_new_company(conn,co, m, pe, pb, d, s, de, yoy)
+                
+            elif c1=='2':
+                co= input("Enter Company Name: ")
+                m= input("Enter Market Cap: ")
+                pe=input("Enter Pe Ratio: ")
+                pb=input("Enter Pb Ratio: ")
+                d=input("Enter Dividend: ")
+                s=input("Enter Sector: ")
+                de = input("Enter Debt To Equity Ratio: ")
+                yoy = input("Enter Yoy Growth: ")
+                
+                au.update_company_data(conn,co, m=None, pe=None, pb=None, d=None, s=None, de=None, yoy=None)
             
-            elif c1==3:
+            elif c1=='3':
                 break
             else:
                 print("Invalid Choice,Please Enter A Choice From Menu")
         
         
-    elif c==6:
+    elif c=='6':
         company_name=input("Enter Company Name: ").strip().lower()  # Take user input and convert to lowercase
         view.view_stock_detail_by_name(conn,company_name )  # Pass the connection object to the function
-    elif c==7:
-        conn.close()
+
+    elif c=='7':
+        h.display_help()
+
+
+
+
+    elif c=='8':
         exit()
 
         
