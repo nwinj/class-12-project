@@ -9,7 +9,7 @@ import stock_help as h
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='Blinkophits1million*',
+    password='1234',
     database='project'  
 )
 
