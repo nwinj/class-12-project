@@ -3,7 +3,7 @@ def add_new_company(con,company_name, market_cap, pe_ratio, pb_ratio, dividend_y
     
     # SQL query to insert a new company into the stock table
     z = """
-        INSERT INTO stock (company, `market cap`, PEratio, PBratio, Divy, sector, dept_to_equity_ratio, yoy_growth)
+        INSERT INTO stock (company, `market_cap`, PEratio, PBratio, Divy, sector, dept_to_equity_ratio, yoy_growth)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
     
