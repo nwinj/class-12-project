@@ -66,7 +66,7 @@ while True:
                      industry_name = input("Enter Industry Name: ")
                 elif c1=='4':
                      industry_name = input("Enter Industry Name: ")
-                    classifier.stock_insights_industry_best_yoy_growth(conn,industry_name)
+                     classifier.stock_insights_industry_best_yoy_growth(conn,industry_name)
                 elif c1=='5':
                     industry_name = input("Enter Industry Name: ")
                     classifier.stock_insights_industry_best_dividend_yield(conn,industry_name)
