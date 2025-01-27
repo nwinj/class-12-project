@@ -11,7 +11,7 @@ CREATE TABLE stock (
     market_cap ENUM('largecap', 'midcap', 'smallcap') NOT NULL,
     PEratio FLOAT NULL,
     PBratio FLOAT NULL,
-    Div FLOAT NULL,
+    Divy FLOAT NULL,
     sector VARCHAR(100) NULL,
     dept_to_equity_ratio FLOAT NULL,
     yoy_growth DECIMAL(7,2) NULL
